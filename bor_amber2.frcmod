@@ -1,0 +1,52 @@
+Remark line goes here
+MASS
+ho 1.008         0.135
+oh 16.000        0.465
+B  10.810        0.000               ATTN, no polarizability parameter
+os 16.000        0.465
+c3 12.010        0.878
+hc 1.008         0.135
+h1 1.008         0.135
+
+BOND
+ho-oh  371.40   0.973
+B -oh    0.00   0.000       ATTN, need revision
+B -os    0.00   0.000       ATTN, need revision
+c3-os  308.60   1.432
+c3-c3  300.90   1.538
+c3-h1  330.60   1.097
+c3-hc  330.60   1.097
+
+ANGLE
+B -oh-ho    0.000       0.000   ATTN, need revision
+oh-B -os    0.000       0.000   ATTN, need revision
+B -os-c3    0.000       0.000   ATTN, need revision
+os-B -os    0.000       0.000   ATTN, need revision
+c3-c3-os   68.000     107.970
+h1-c3-os   50.800     109.780
+c3-c3-hc   46.340     109.800
+c3-c3-h1   46.390     109.560
+hc-c3-hc   39.400     107.580
+h1-c3-h1   39.240     108.460
+
+DIHE
+os-B -oh-ho   1    0.000         0.000           0.000      ATTN, need revision
+oh-B -os-c3   1    0.000         0.000           0.000      ATTN, need revision
+c3-c3-os-B    3    1.150         0.000           3.000
+h1-c3-os-B    3    1.150         0.000           3.000
+os-B -os-c3   1    0.000         0.000           0.000      ATTN, need revision
+hc-c3-c3-os   1    0.000         0.000          -3.000
+hc-c3-c3-os   1    0.250         0.000           1.000
+h1-c3-c3-hc   9    1.400         0.000           3.000
+
+IMPROPER
+oh-os-B -os         1.1          180.0         2.0          Using the default value
+
+NONBON
+  ho          0.0000  0.0000
+  oh          1.7210  0.2104
+  B           0.0000  0.0000             ATTN, need revision
+  os          1.6837  0.1700
+  c3          1.9080  0.1094
+  hc          1.4870  0.0157
+  h1          1.3870  0.0157
