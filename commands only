@@ -1,0 +1,4 @@
+
+antechamber -i bor.pdb -fi pdb -o bor_amber.mol2 -fo mol2 -j 5 -at sybyl -dr no
+parmchk -i bor_amber.mol2 -f mol2 -o bor_amber.frcmod -a Y
+parmchk2 -i bor_amber.mol2 -f mol2 -o bor_amber2.frcmod -a Y
