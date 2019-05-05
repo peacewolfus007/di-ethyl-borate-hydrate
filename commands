@@ -1,0 +1,35 @@
+# convert pdb to mol2 with "dr no" flag:
+antechamber -i bor.pdb -fi pdb -o bor_amber.mol2 -fo mol2 -j 5 -at sybyl -dr no
+
+# open bor.mol2 with VFFDT 
+# ASSIGN AMBER MOL2 ATOM TYPES
+# Copy new atom types
+# Open bor_amber.mol2 in sublimtext
+# Paste by "paste in column" new atom types into 6th column (yes, override them)
+# Copy bor charges from Gaussian POP=MK out file and paste it into bor_amber.mol2 file's the last column
+# Save file with the same name.
+# Here is the bor_amber.mol2 file with charges and AMBER Atom Types: 
+                    https://github.com/bariskurtPhd/di-ethyl-borate-hydrate/blob/master/bor_amber.mol2
+
+# Now we will scan dihedrals but which one of them? Let's find out:
+# FOR IDIVF=1 we will use parmchk (which is deprecated by coming AMBER 18)
+# parmchk -i bor_amber.mol2 -f mol2 -o bor_amber.frcmod -a Y
+# Here is your frcmod file:
+                    https://github.com/bariskurtPhd/di-ethyl-borate-hydrate/blob/master/bor_amber.frcmod
+                  
+# FOR IDIVF>1 we will use parmchk2 (in amber 18 before use this for another atoms not included in APT.dat file, like "boron" atom, 
+# you should add Boron atom into this file. Otherwise this code will not run:
+# parmchk2 -i bor_amber.mol2 -f mol2 -o bor_amber2.frcmod -a Y
+# Here is your frcmod file:
+                    https://github.com/bariskurtPhd/di-ethyl-borate-hydrate/blob/master/bor_amber2.frcmod
+
+Now we can see which dihedrals we should scan in these files:
+
+os-B -oh-ho   1    0.000  
+oh-B -os-c3   1    0.000  
+c3-c3-os-B    3    1.150  
+h1-c3-os-B    3    1.150  
+os-B -os-c3   1    0.000  
+hc-c3-c3-os   1    0.000  
+hc-c3-c3-os   1    0.250  
+h1-c3-c3-hc   9    1.400  
